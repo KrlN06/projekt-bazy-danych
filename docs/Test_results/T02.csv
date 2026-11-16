@@ -1,0 +1,58 @@
+table_name,column_name,data_type,character_maximum_length,is_nullable
+datafile_codes,code_id,integer,,NO
+datafile_codes,code,character varying,10,NO
+datafile_codes,description,text,,NO
+datafiles,datafile_id,integer,,NO
+datafiles,session_id,integer,,NO
+datafiles,code_id,integer,,NO
+datafiles,file_name,character varying,255,NO
+datafiles,storage_uri,text,,NO
+datafiles,file_format,character varying,20,NO
+datafiles,file_size,bigint,,YES
+datafiles,uploaded_at,timestamp without time zone,,NO
+datasets,dataset_id,integer,,NO
+datasets,datafile_id,integer,,NO
+datasets,sig_name_id,integer,,NO
+datasets,session_id,integer,,NO
+measurement_sessions,session_id,integer,,NO
+measurement_sessions,object_id,integer,,NO
+measurement_sessions,measurement_stand_id,integer,,NO
+measurement_sessions,designed_by,integer,,NO
+measurement_sessions,created_by,integer,,NO
+measurement_sessions,audited_by,integer,,YES
+measurement_sessions,created_at,timestamp without time zone,,NO
+measurement_sessions,started_at,timestamp without time zone,,YES
+measurement_sessions,finished_at,timestamp without time zone,,YES
+measurement_sessions,status,character varying,20,NO
+measurement_sessions,description,text,,YES
+measurement_sessions,is_deleted,boolean,,NO
+measurement_stands,measurement_stand_id,integer,,NO
+measurement_stands,name,character varying,50,NO
+measurement_stands,description,text,,YES
+measurement_stands,is_deleted,boolean,,NO
+object_participants,object_participant_id,integer,,NO
+object_participants,object_id,integer,,NO
+object_participants,participant_id,integer,,NO
+object_participants,joined_at,date,,NO
+object_participants,is_deleted,boolean,,NO
+objects,object_id,integer,,NO
+objects,name,character varying,50,NO
+objects,description,text,,YES
+objects,is_deleted,boolean,,NO
+participant_roles,participant_id,integer,,NO
+participant_roles,role_id,integer,,NO
+participant_roles,assigned_at,timestamp without time zone,,NO
+participants,participant_id,integer,,NO
+participants,username,character varying,20,NO
+participants,email,character varying,100,NO
+participants,is_deleted,boolean,,NO
+roles,role_id,integer,,NO
+roles,name,character varying,30,NO
+roles,description,text,,YES
+roles,is_deleted,boolean,,NO
+signals_names,sig_name_id,integer,,NO
+signals_names,session_id,integer,,NO
+signals_names,name,character varying,50,NO
+signals_names,unit,character varying,20,YES
+signals_names,description,text,,YES
+signals_names,is_deleted,boolean,,NO

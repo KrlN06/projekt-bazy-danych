@@ -1,0 +1,24 @@
+tablename,indexname,indexdef
+datafile_codes,datafile_codes_code_key,CREATE UNIQUE INDEX datafile_codes_code_key ON public.datafile_codes USING btree (code)
+datafile_codes,datafile_codes_pkey,CREATE UNIQUE INDEX datafile_codes_pkey ON public.datafile_codes USING btree (code_id)
+datafiles,datafiles_datafile_id_session_id_key,"CREATE UNIQUE INDEX datafiles_datafile_id_session_id_key ON public.datafiles USING btree (datafile_id, session_id)"
+datafiles,datafiles_pkey,CREATE UNIQUE INDEX datafiles_pkey ON public.datafiles USING btree (datafile_id)
+datafiles,datafiles_storage_uri_key,CREATE UNIQUE INDEX datafiles_storage_uri_key ON public.datafiles USING btree (storage_uri)
+datasets,datasets_datafile_id_sig_name_id_key,"CREATE UNIQUE INDEX datasets_datafile_id_sig_name_id_key ON public.datasets USING btree (datafile_id, sig_name_id)"
+datasets,datasets_pkey,CREATE UNIQUE INDEX datasets_pkey ON public.datasets USING btree (dataset_id)
+measurement_sessions,measurement_sessions_pkey,CREATE UNIQUE INDEX measurement_sessions_pkey ON public.measurement_sessions USING btree (session_id)
+measurement_stands,measurement_stands_pkey,CREATE UNIQUE INDEX measurement_stands_pkey ON public.measurement_stands USING btree (measurement_stand_id)
+measurement_stands,unique_active_measurement_stand_name,CREATE UNIQUE INDEX unique_active_measurement_stand_name ON public.measurement_stands USING btree (lower((name)::text)) WHERE (is_deleted = false)
+object_participants,object_participants_pkey,CREATE UNIQUE INDEX object_participants_pkey ON public.object_participants USING btree (object_participant_id)
+object_participants,unique_active_object_participant,"CREATE UNIQUE INDEX unique_active_object_participant ON public.object_participants USING btree (object_id, participant_id) WHERE (is_deleted = false)"
+objects,objects_pkey,CREATE UNIQUE INDEX objects_pkey ON public.objects USING btree (object_id)
+objects,unique_object_name,CREATE UNIQUE INDEX unique_object_name ON public.objects USING btree (lower((name)::text)) WHERE (is_deleted = false)
+participant_roles,participant_roles_pkey,"CREATE UNIQUE INDEX participant_roles_pkey ON public.participant_roles USING btree (participant_id, role_id)"
+participants,participants_pkey,CREATE UNIQUE INDEX participants_pkey ON public.participants USING btree (participant_id)
+participants,unique_active_email,CREATE UNIQUE INDEX unique_active_email ON public.participants USING btree (lower((email)::text)) WHERE (is_deleted = false)
+participants,unique_active_username,CREATE UNIQUE INDEX unique_active_username ON public.participants USING btree (lower((username)::text)) WHERE (is_deleted = false)
+roles,roles_pkey,CREATE UNIQUE INDEX roles_pkey ON public.roles USING btree (role_id)
+roles,unique_active_role_name,CREATE UNIQUE INDEX unique_active_role_name ON public.roles USING btree (lower((name)::text)) WHERE (is_deleted = false)
+signals_names,signals_names_pkey,CREATE UNIQUE INDEX signals_names_pkey ON public.signals_names USING btree (sig_name_id)
+signals_names,signals_names_sig_name_id_session_id_key,"CREATE UNIQUE INDEX signals_names_sig_name_id_session_id_key ON public.signals_names USING btree (sig_name_id, session_id)"
+signals_names,unique_active_signal_name,"CREATE UNIQUE INDEX unique_active_signal_name ON public.signals_names USING btree (session_id, name) WHERE (is_deleted = false)"

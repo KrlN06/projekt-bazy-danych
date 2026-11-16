@@ -1,0 +1,64 @@
+table_name,constraint_name,check_clause
+datafile_codes,datafile_codes_code_check,(length(TRIM(BOTH FROM code)) > 0)
+datafile_codes,datafile_codes_code_id_not_null,code_id IS NOT NULL
+datafile_codes,datafile_codes_code_not_null,code IS NOT NULL
+datafile_codes,datafile_codes_description_check,(length(TRIM(BOTH FROM description)) > 0)
+datafile_codes,datafile_codes_description_not_null,description IS NOT NULL
+datafiles,datafiles_code_id_not_null,code_id IS NOT NULL
+datafiles,datafiles_datafile_id_not_null,datafile_id IS NOT NULL
+datafiles,datafiles_file_format_check,"((file_format)::text = ANY ((ARRAY['CSV'::character varying, 'MAT'::character varying, 'HDF5'::character varying, 'TXT'::character varying])::text[]))"
+datafiles,datafiles_file_format_not_null,file_format IS NOT NULL
+datafiles,datafiles_file_name_check,(length(TRIM(BOTH FROM file_name)) > 0)
+datafiles,datafiles_file_name_not_null,file_name IS NOT NULL
+datafiles,datafiles_file_size_check,(file_size >= 0)
+datafiles,datafiles_session_id_not_null,session_id IS NOT NULL
+datafiles,datafiles_storage_uri_check,(length(TRIM(BOTH FROM storage_uri)) > 0)
+datafiles,datafiles_storage_uri_not_null,storage_uri IS NOT NULL
+datafiles,datafiles_uploaded_at_not_null,uploaded_at IS NOT NULL
+datasets,datasets_datafile_id_not_null,datafile_id IS NOT NULL
+datasets,datasets_dataset_id_not_null,dataset_id IS NOT NULL
+datasets,datasets_session_id_not_null,session_id IS NOT NULL
+datasets,datasets_sig_name_id_not_null,sig_name_id IS NOT NULL
+measurement_sessions,measurement_sessions_check,((finished_at IS NULL) OR (started_at IS NULL) OR (finished_at >= started_at))
+measurement_sessions,measurement_sessions_check1,"((((status)::text = 'scheduled'::text) AND (started_at IS NULL) AND (finished_at IS NULL)) OR (((status)::text = ANY ((ARRAY['active'::character varying, 'suspended'::character varying])::text[])) AND (started_at IS NOT NULL) AND (finished_at IS NULL)) OR (((status)::text = 'finished'::text) AND (started_at IS NOT NULL) AND (finished_at IS NOT NULL)) OR (((status)::text = 'aborted'::text) AND (finished_at IS NOT NULL) AND ((started_at IS NULL) OR (finished_at >= started_at))))"
+measurement_sessions,measurement_sessions_created_at_not_null,created_at IS NOT NULL
+measurement_sessions,measurement_sessions_created_by_not_null,created_by IS NOT NULL
+measurement_sessions,measurement_sessions_designed_by_not_null,designed_by IS NOT NULL
+measurement_sessions,measurement_sessions_is_deleted_not_null,is_deleted IS NOT NULL
+measurement_sessions,measurement_sessions_measurement_stand_id_not_null,measurement_stand_id IS NOT NULL
+measurement_sessions,measurement_sessions_object_id_not_null,object_id IS NOT NULL
+measurement_sessions,measurement_sessions_session_id_not_null,session_id IS NOT NULL
+measurement_sessions,measurement_sessions_status_check,"((status)::text = ANY ((ARRAY['active'::character varying, 'scheduled'::character varying, 'suspended'::character varying, 'finished'::character varying, 'aborted'::character varying])::text[]))"
+measurement_sessions,measurement_sessions_status_not_null,status IS NOT NULL
+measurement_stands,measurement_stands_is_deleted_not_null,is_deleted IS NOT NULL
+measurement_stands,measurement_stands_measurement_stand_id_not_null,measurement_stand_id IS NOT NULL
+measurement_stands,measurement_stands_name_check,(length(TRIM(BOTH FROM name)) > 0)
+measurement_stands,measurement_stands_name_not_null,name IS NOT NULL
+object_participants,object_participants_is_deleted_not_null,is_deleted IS NOT NULL
+object_participants,object_participants_joined_at_not_null,joined_at IS NOT NULL
+object_participants,object_participants_object_id_not_null,object_id IS NOT NULL
+object_participants,object_participants_object_participant_id_not_null,object_participant_id IS NOT NULL
+object_participants,object_participants_participant_id_not_null,participant_id IS NOT NULL
+objects,objects_is_deleted_not_null,is_deleted IS NOT NULL
+objects,objects_name_check,(length(TRIM(BOTH FROM name)) > 0)
+objects,objects_name_not_null,name IS NOT NULL
+objects,objects_object_id_not_null,object_id IS NOT NULL
+participant_roles,participant_roles_assigned_at_not_null,assigned_at IS NOT NULL
+participant_roles,participant_roles_participant_id_not_null,participant_id IS NOT NULL
+participant_roles,participant_roles_role_id_not_null,role_id IS NOT NULL
+participants,participants_email_check,(length(TRIM(BOTH FROM email)) > 0)
+participants,participants_email_not_null,email IS NOT NULL
+participants,participants_is_deleted_not_null,is_deleted IS NOT NULL
+participants,participants_participant_id_not_null,participant_id IS NOT NULL
+participants,participants_username_check,(length(TRIM(BOTH FROM username)) > 0)
+participants,participants_username_not_null,username IS NOT NULL
+roles,roles_is_deleted_not_null,is_deleted IS NOT NULL
+roles,roles_name_check,(length(TRIM(BOTH FROM name)) > 0)
+roles,roles_name_not_null,name IS NOT NULL
+roles,roles_role_id_not_null,role_id IS NOT NULL
+signals_names,signals_names_is_deleted_not_null,is_deleted IS NOT NULL
+signals_names,signals_names_name_check,(length(TRIM(BOTH FROM name)) > 0)
+signals_names,signals_names_name_not_null,name IS NOT NULL
+signals_names,signals_names_session_id_not_null,session_id IS NOT NULL
+signals_names,signals_names_sig_name_id_not_null,sig_name_id IS NOT NULL
+signals_names,signals_names_unit_check,((unit IS NULL) OR (length(TRIM(BOTH FROM unit)) > 0))

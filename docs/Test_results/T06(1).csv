@@ -1,0 +1,9 @@
+table_name,constraint_name,column_name,ordinal_position
+datafile_codes,datafile_codes_code_key,code,1
+datafiles,datafiles_datafile_id_session_id_key,datafile_id,1
+datafiles,datafiles_datafile_id_session_id_key,session_id,2
+datafiles,datafiles_storage_uri_key,storage_uri,1
+datasets,datasets_datafile_id_sig_name_id_key,datafile_id,1
+datasets,datasets_datafile_id_sig_name_id_key,sig_name_id,2
+signals_names,signals_names_sig_name_id_session_id_key,sig_name_id,1
+signals_names,signals_names_sig_name_id_session_id_key,session_id,2

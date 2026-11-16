@@ -1,0 +1,3 @@
+constraint_name,constraint_definition,is_validated
+datasets_datafile_id_session_id_fkey,"FOREIGN KEY (datafile_id, session_id) REFERENCES datafiles(datafile_id, session_id) ON UPDATE RESTRICT ON DELETE RESTRICT",true
+datasets_sig_name_id_session_id_fkey,"FOREIGN KEY (sig_name_id, session_id) REFERENCES signals_names(sig_name_id, session_id) ON UPDATE RESTRICT ON DELETE RESTRICT",true

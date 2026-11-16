@@ -1,0 +1,58 @@
+table_name,column_name,is_nullable,data_type
+datafile_codes,code_id,NO,integer
+datafile_codes,code,NO,character varying
+datafile_codes,description,NO,text
+datafiles,datafile_id,NO,integer
+datafiles,session_id,NO,integer
+datafiles,code_id,NO,integer
+datafiles,file_name,NO,character varying
+datafiles,storage_uri,NO,text
+datafiles,file_format,NO,character varying
+datafiles,file_size,YES,bigint
+datafiles,uploaded_at,NO,timestamp without time zone
+datasets,dataset_id,NO,integer
+datasets,datafile_id,NO,integer
+datasets,sig_name_id,NO,integer
+datasets,session_id,NO,integer
+measurement_sessions,session_id,NO,integer
+measurement_sessions,object_id,NO,integer
+measurement_sessions,measurement_stand_id,NO,integer
+measurement_sessions,designed_by,NO,integer
+measurement_sessions,created_by,NO,integer
+measurement_sessions,audited_by,YES,integer
+measurement_sessions,created_at,NO,timestamp without time zone
+measurement_sessions,started_at,YES,timestamp without time zone
+measurement_sessions,finished_at,YES,timestamp without time zone
+measurement_sessions,status,NO,character varying
+measurement_sessions,description,YES,text
+measurement_sessions,is_deleted,NO,boolean
+measurement_stands,measurement_stand_id,NO,integer
+measurement_stands,name,NO,character varying
+measurement_stands,description,YES,text
+measurement_stands,is_deleted,NO,boolean
+object_participants,object_participant_id,NO,integer
+object_participants,object_id,NO,integer
+object_participants,participant_id,NO,integer
+object_participants,joined_at,NO,date
+object_participants,is_deleted,NO,boolean
+objects,object_id,NO,integer
+objects,name,NO,character varying
+objects,description,YES,text
+objects,is_deleted,NO,boolean
+participant_roles,participant_id,NO,integer
+participant_roles,role_id,NO,integer
+participant_roles,assigned_at,NO,timestamp without time zone
+participants,participant_id,NO,integer
+participants,username,NO,character varying
+participants,email,NO,character varying
+participants,is_deleted,NO,boolean
+roles,role_id,NO,integer
+roles,name,NO,character varying
+roles,description,YES,text
+roles,is_deleted,NO,boolean
+signals_names,sig_name_id,NO,integer
+signals_names,session_id,NO,integer
+signals_names,name,NO,character varying
+signals_names,unit,YES,character varying
+signals_names,description,YES,text
+signals_names,is_deleted,NO,boolean

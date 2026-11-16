@@ -1,0 +1,15 @@
+constraint_name,source_table,constraint_definition
+datafiles_code_id_fkey,datafiles,FOREIGN KEY (code_id) REFERENCES datafile_codes(code_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+datafiles_session_id_fkey,datafiles,FOREIGN KEY (session_id) REFERENCES measurement_sessions(session_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+datasets_datafile_id_session_id_fkey,datasets,"FOREIGN KEY (datafile_id, session_id) REFERENCES datafiles(datafile_id, session_id) ON UPDATE RESTRICT ON DELETE RESTRICT"
+datasets_sig_name_id_session_id_fkey,datasets,"FOREIGN KEY (sig_name_id, session_id) REFERENCES signals_names(sig_name_id, session_id) ON UPDATE RESTRICT ON DELETE RESTRICT"
+measurement_sessions_audited_by_fkey,measurement_sessions,FOREIGN KEY (audited_by) REFERENCES participants(participant_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+measurement_sessions_created_by_fkey,measurement_sessions,FOREIGN KEY (created_by) REFERENCES participants(participant_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+measurement_sessions_designed_by_fkey,measurement_sessions,FOREIGN KEY (designed_by) REFERENCES participants(participant_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+measurement_sessions_measurement_stand_id_fkey,measurement_sessions,FOREIGN KEY (measurement_stand_id) REFERENCES measurement_stands(measurement_stand_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+measurement_sessions_object_id_fkey,measurement_sessions,FOREIGN KEY (object_id) REFERENCES objects(object_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+object_participants_object_id_fkey,object_participants,FOREIGN KEY (object_id) REFERENCES objects(object_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+object_participants_participant_id_fkey,object_participants,FOREIGN KEY (participant_id) REFERENCES participants(participant_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+participant_roles_participant_id_fkey,participant_roles,FOREIGN KEY (participant_id) REFERENCES participants(participant_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+participant_roles_role_id_fkey,participant_roles,FOREIGN KEY (role_id) REFERENCES roles(role_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+signals_names_session_id_fkey,signals_names,FOREIGN KEY (session_id) REFERENCES measurement_sessions(session_id) ON UPDATE RESTRICT ON DELETE RESTRICT
